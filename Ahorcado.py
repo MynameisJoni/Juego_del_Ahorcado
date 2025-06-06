@@ -34,7 +34,6 @@ print(f'\nVidas del Jugador 2: {vidas}')
 
 contador = 0 
 
-# TODO: hay que buscar como salir del bucle cuando se aciertan todas las letras o cuando se completa el ahorcado
 
 for i in range(len(vidas) + len(palabra_lista)): 
     letra = input('\nIntroduzca una letra: \n')
@@ -44,4 +43,10 @@ for i in range(len(vidas) + len(palabra_lista)):
         vidas[contador] = ahorcado[contador]   
         contador += 1 
     print(f'Palabra del Jugardor 1: {respuesta}') 
-    print(f'Vidas del Jugador 2: {vidas}')   
+    print(f'Vidas del Jugador 2: {vidas}')
+    if respuesta == palabra_lista:
+        print('Ganaste rey')
+        break
+    elif vidas == ahorcado:
+        print('Perdiste mi cielo')   
+        break  
