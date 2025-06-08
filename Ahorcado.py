@@ -7,16 +7,16 @@ print('Juego del Ahorcado (para dos jugadores)\n\n' +
 '8 intentos al jugador 2.\n' +
 'Al cumplir los 8 intentos, si no se ha adivinado la palabra,\n' +
 'el jugador 1 gana la partida. Si se adivina la palabra antes de\n' + 
-'completar el AHORCADO el jugador 2 gana la partida.')
+'completar el AHORCADO el jugador 2 gana la partida.\n')
 
 
 palabra = input("Que el jugador Número 1 introduzca una palabra: ")
 palabra_lista = []
 for p in palabra:
-    palabra_lista.append(p)
+    palabra_lista.append(p.upper())
     
 input('\nPulse ENTER para continuar...')
-os.system('cls')
+os.system('clear') # cls en windows
 
 
 print('Turno del jugador 2\n\n')
@@ -34,19 +34,19 @@ print(f'\nVidas del Jugador 2: {vidas}')
 
 contador = 0 
 
-
 for i in range(len(vidas) + len(palabra_lista)): 
-    letra = input('\nIntroduzca una letra: \n')
-    if letra in palabra_lista:
-        respuesta[palabra_lista.index(letra)] = letra  # TODO: y si hay letras repetidas???????????
-    else:
+    letra = input('\nIntroduzca una letra: \n').upper()
+    for i, n in enumerate(palabra_lista):
+        if letra == n:
+            respuesta[i] = letra.upper() 
+    if letra not in palabra_lista:
         vidas[contador] = ahorcado[contador]   
-        contador += 1 
-    print(f'Palabra del Jugardor 1: {respuesta}') 
-    print(f'Vidas del Jugador 2: {vidas}')
+        contador += 1
+    print(f'\nPalabra del Jugardor 1: {respuesta}\n') 
+    print(f'Vidas del Jugador 2: {vidas}\n')
     if respuesta == palabra_lista:
-        print('Ganaste rey')
+        print('Ganaste rey\n')
         break
     elif vidas == ahorcado:
-        print('Perdiste mi cielo')   
+        print('Perdiste mi cielo\n')   
         break  
