@@ -16,7 +16,7 @@ for p in palabra:
     palabra_lista.append(p.upper())
     
 input('\nPulse ENTER para continuar...')
-os.system('clear') # cls en windows
+os.system('cls') # 'cls' -> 'clear' en macOS
 
 
 print('Turno del jugador 2\n\n')
@@ -45,8 +45,8 @@ for i in range(len(vidas) + len(palabra_lista)):
     print(f'\nPalabra del Jugardor 1: {respuesta}\n') 
     print(f'Vidas del Jugador 2: {vidas}\n')
     if respuesta == palabra_lista:
-        print('Ganaste rey\n')
+        print(f'Palabra "{palabra}" adivinada! El Jugador 2 ha ganado la partida!!\n')
         break
     elif vidas == ahorcado:
-        print('Perdiste mi cielo\n')   
+        print(f'Ahorcado completado... El Jugador 1 ha ganado la partida!!\n')   
         break  
